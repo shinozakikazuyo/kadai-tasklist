@@ -12,4 +12,7 @@ class User < ApplicationRecord
   #パスワードをより安全にする
   has_secure_password
   
+  #ユーザーに対し１対多とする
+  has_many :tasks
+  
 end
