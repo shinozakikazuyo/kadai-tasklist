@@ -20,7 +20,10 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
-      redirect_to @user
+      #redirect_to @user
+      redirect_to login_path
+      #redirect_to tasks_path
+    
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new
@@ -33,6 +36,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+  
+  #新規会員情報を保持する
+  def new_login
+    User.find(session[:user_id])
   end
   
 end

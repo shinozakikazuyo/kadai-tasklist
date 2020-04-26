@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   #サインアップ
   get 'signup', to: 'users#new'
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create, :show]
   
   #ログイン
   get 'login', to: 'sessions#new'
