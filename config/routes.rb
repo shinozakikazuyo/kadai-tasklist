@@ -5,14 +5,11 @@ Rails.application.routes.draw do
   
   #サインアップ
   get 'signup', to: 'users#new'
-  resources :users, only: [:index, :new, :create, :show]
+  resources :users, only: [:create, :new]
   
   #ログイン
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
-  #新規投稿、投稿の削除
-  resources :tasks, only: [:create, :destroy]
   
 end
